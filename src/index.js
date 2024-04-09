@@ -16,13 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayMovieDetails(movie) {
         movieImage.src = `${movie.poster}`
         movieImage.alt=`${movie.title} `
-  
+
         movieDescription.innerHTML = `
             <h2>${movie.title}</h2>
-            <p>Runtime: ${movie.runtime}</p>
+            <p>${movie.description}</p>
+            <p>Runtime: ${movie.runtime} minutes</p>
             <p>Showtime: ${movie.showtime}</p>
             <p>Available Tickets: ${movie.capacity - movie.tickets_sold}</p>
-            `;
+            `;// Available tickets value is calculated by taking the the total seats minus the seats bought
+            
+            //display the Movie Title and the runtime in the side bar
+        document.getElementById("runtime").innerHTML= `<p>Runtime: ${movie.runtime} minutes</p>`
+        document.getElementById("title").innerHTML= `<h2>${movie.title}</h2>`
+        document.getElementById("showtime").innerHTML=`<p>Showtime: ${movie.showtime}</p>`
+        document.getElementById("ticket-num").innerHTML=`<p> Only ${movie.capacity - movie.tickets_sold}</p>`
+        document.getElementById("ticket-num").innerHTML=`<h1><p> Only ${movie.capacity - movie.tickets_sold}</p></h1>`
+
 
         // Update the button text based on available tickets
         if (movie.tickets_sold >= movie.capacity) {
