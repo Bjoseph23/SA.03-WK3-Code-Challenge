@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateTicketInfo(movie) {
-        if (movie) {
+        if (movie) { 
             fetch(`http://localhost:3000/films/${movie.id}`, {
                 method: "PUT",
                 headers: {
